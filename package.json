@@ -12,6 +12,7 @@
         "node": ">=0.10.0"
     },
     "dependencies": {
+        "jugglingdb": "*",
         "adaro": "*",
         "dustjs-linkedin": "*",
         "dustjs-helpers": "*",

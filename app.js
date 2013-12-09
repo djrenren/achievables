@@ -2,11 +2,17 @@
 
 
 var kraken = require('kraken-js'),
+    db = require('./lib/db'),
     app = {};
 
 
 app.configure = function configure(nconf, next) {
     // Fired when an app configures itself
+    var adapter = nconf.get('adapter'),
+        settings = nconf.get('db')[adapter];
+
+    db.init(adapter, settings);
+
     next(null);
 };
 

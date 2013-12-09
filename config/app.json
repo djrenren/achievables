@@ -39,6 +39,13 @@
       "json spaces": 0,
       "case sensitive routing": true,
       "strict routing": false
+  },
+
+  "adapter": "memory",
+
+  "db": {
+    "memory": null,
+    "rethink": {}
   }
 
 }
