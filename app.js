@@ -7,33 +7,33 @@ var kraken = require('kraken-js'),
 
 
 app.configure = function configure(nconf, next) {
-    // Fired when an app configures itself
-    var adapter = nconf.get('adapter'),
-        settings = nconf.get('db')[adapter];
+  // Fired when an app configures itself
+  var adapter = nconf.get('adapter'),
+      settings = nconf.get('db')[adapter];
 
-    db.init(adapter, settings);
+  db.init(adapter, settings);
 
-    next(null);
+  next(null);
 };
 
 
 app.requestStart = function requestStart(server) {
-    // Fired at the beginning of an incoming request
+  // Fired at the beginning of an incoming request
 };
 
 
 app.requestBeforeRoute = function requestBeforeRoute(server) {
-    // Fired before routing occurs
+  // Fired before routing occurs
 };
 
 
 app.requestAfterRoute = function requestAfterRoute(server) {
-    // Fired after routing occurs
+  // Fired after routing occurs
 };
 
 
 kraken.create(app).listen(function (err) {
-    if (err) {
-        console.error(err);
-    }
+  if (err) {
+    console.error(err);
+  }
 });
