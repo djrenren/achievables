@@ -1,7 +1,8 @@
 'use strict';
 
 var Services = require('../models/service.js'),
-    wl = require('../lib/util.js').whitelist;
+    wl = require('../lib/util.js').whitelist,
+    reverse = require('../lib/util.js').reverse;
 
 module.exports = function (server) {
 
@@ -26,7 +27,7 @@ module.exports = function (server) {
   var createWhitelist = ['appname', 'description', 'longname'];
   server.post(path, function (req, res, next) {
     var attrs = wl(createWhitelist, req.body);
-    attrs.secret = 'appname'.reverse(); //FIXME
+    attrs.secret = reverse('appname'); //FIXME
     Services.create(attrs, function(err, inst) {
       if (err) {
         return next(err);
